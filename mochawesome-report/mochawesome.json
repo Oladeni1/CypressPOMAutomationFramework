@@ -1,0 +1,99 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-01-08T23:10:35.012Z",
+    "end": "2020-01-08T23:11:08.855Z",
+    "duration": 33843,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d25a7f3a-53e0-4108-9ecd-d760dbc54295",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0d56e33b-6c9d-4c8a-a938-df029956c4dd",
+          "title": "My Framework Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Do something nice!",
+              "fullTitle": "My Framework Suite Do something nice!",
+              "timedOut": null,
+              "duration": 22343,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var homePage = new _HomePage.default();\nvar productPage = new _ProductPage.default();\nvar confirmPage = new _ConfirmPage.default();\nvar paymentPage = new _PaymentPage.default();\ncy.visit(Cypress.env(\"url\")); //Pulling for global variable setting from cypress.json folder\nhomePage.getName().type(this.data.name);\nhomePage.getGender().select(this.data.gender); //assert that name is displayed in 2way data binding field:\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name); //assert that inputed data for name field is having min of 2 characters:\nhomePage.getName().should('have.attr', 'minlength', '2'); //assert that Entrepreneur is in disable mode in the application:\nhomePage.getEnterpreneur().should('be.disabled'); //cy.pause() //<= use pause to debugg\n//nav to Shop\nhomePage.getShop().click(); //add product: Parameterising data and driving them from support => commands.js\n//cy.selectProduct('Blackberry')  // function coming from support => commands.js\n//cy.selectProduct('Nokia Edge')\n//cy.selectProduct('iphone X')\n//Alternativelly, extend the support => commands.js dataParam to fixture => testdata.json and call it as below:\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n  console.log(element);\n}); //Click Checkout buttton for products in the confirm page:  \nproductPage.getCheckOut().click(); //Sum Prices of all products in the bag:\nvar sum = 0;\nconfirmPage.getProductsPrices().each(function ($el, index, $list) {\n  cy.log($el.text());\n  var amount = $el.text();\n  var result = amount.split(\" \");\n  result = result[1].trim(); //trim to remove currency sign\n  cy.log(result);\n  sum = Number(sum) + Number(result);\n}).then(function () {\n  cy.log(sum);\n}); //Grand Total of all products prices in the bag:\nconfirmPage.getProductsGrandPrice().then(function (element) {\n  var amount = element.text();\n  var grandtotal = amount.split(\" \");\n  var grandtotal = grandtotal[1].trim(); //trim to remove currency sign\n  cy.log(grandtotal); //Assert that sum of the products prices is equalto grand total\n  expect(sum).to.equal(Number(grandtotal));\n}); //Click Checkout buttton for products in the confirm page: \nconfirmPage.getCheckOutConfirm().click(); //Enter country of dispatch in the payment confirm page: \npaymentPage.getDispatchCountryName().type(this.data.CountryOfDispatch);\ncy.wait(5000); //Click checkbox in the paymentconfirm page: \npaymentPage.getCheckBox().click(); //Click purchase buttton for products in the payment confirm page: \npaymentPage.getPurchase().click(); //Click purchase buttton for products in the payment confirm page:\npaymentPage.getSuccessMsg().should('include.text', 'Success!'); //fixture",
+              "err": {},
+              "uuid": "543d83d8-3355-4811-b85c-60ee0ae41d7c",
+              "parentUUID": "0d56e33b-6c9d-4c8a-a938-df029956c4dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "543d83d8-3355-4811-b85c-60ee0ae41d7c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 22343,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {},
+      "version": "4.1.0"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "cypressautomationframework",
+  "version": "1.0.0",
+  "description": "Cyress Automation Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules\\.bin\\cypress run",
+    "headedTest": "npm run test -- --headed",
+    "chromeTest": "npm run test -- --browser chrome",
+    "recordDashboardTest": "npm run test -- --record --key ac32cb2b-b95b-4e42-985f-68ce5156f36a --reporter mochawesome"
+
+  },
+  "author": "Ola Oladeni",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^3.8.1",
+    "mocha": "^5.2.0",
+    "mochawesome": "^4.1.0"
+  }
+}
