@@ -1,0 +1,36 @@
+Do the following to perform a pull request/merge process for newly added job:
+
+(via terminal):
+1. Perform daily pull to get latest version 
+  > git pull
+
+2. Checkout the branch for the new work to do
+  >git checkout -b "newwork"
+
+3. Create newwork/coding & save your job
+
+4. Add your commpleted newwork to br tracked
+  > git add .
+
+5.Commit your newwork to repo
+  > git commit -m "commit newwork"
+
+6. perform initial pull
+  > git push
+
+7. Perform final push to upstream origin
+  > git --set upstream origin "newwork"
+
+8. Initiate pull request(Do from the terminal by following pull request link)
+
+9.Perform/create pull request against newwork from the repo (e.g Github)
+
+10. Merge pull request & confirm pull request (via repo)
+
+11. Delete the merged branch - newwork (Via repo)
+
+12. Perform checkout master branch to go back to master (via project terminal)
+   >git checkout master
+
+13. Finally, get the latest server version (via terminal)
+  > git pull

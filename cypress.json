@@ -5,6 +5,17 @@
   "env": {
     "url": "https://rahulshettyacademy.com/angularpractice/"
   },
-  "projectId": "kqp5xh"
-  
+  "projectId": "kqp5xh",
+
+  "report": "cypress-multi-reporters",
+  "reporterOptions": {
+  "reporterEnabled": "mochawesome",
+  "mochawesomeReporterOptions":{
+  "reportDir": "cypress/reports/mocha",
+  "quite": true,
+  "overwrite": false,
+  "html": false,
+  "json": true
+  } 
+}
 }
