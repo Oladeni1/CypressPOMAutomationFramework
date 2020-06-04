@@ -24,3 +24,11 @@ steps:
   inputs:
     script: 'npm run script || npm run postTestReport'
   displayName: 'npm run test with report'
+- task: CmdLine@2
+  inputs:
+    script: 'npm run script || npm run postTestReport'
+- task: PublishBuildArtifacts@1
+  inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'CypressTestResult'
+        publishLocation: 'Container'
