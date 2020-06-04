@@ -20,10 +20,7 @@ steps:
     npm run build
     npm run test -- --headed
     displayName: 'npm install and build'
-- task: CmdLine@2
-  inputs:
-    script: 'npm run script || npm run postTestReport'
-  displayName: 'npm run test with report'
+
 - task: PublishBuildArtifacts@1
   inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
