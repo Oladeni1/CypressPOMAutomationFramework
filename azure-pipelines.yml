@@ -26,3 +26,21 @@ steps:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'CypressTestResult'
         publishLocation: 'Container'
+
+stages:
+  # Default stage (to run tests in Electron environment)
+  - template: templates/stages/defaultStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
+
+  - template: templates/stages/chromeStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
+
+  - template: templates/stages/firefoxStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
+
+  - template: templates/stages/edgeStage.yml
+    parameters:
+      imageName: 'windows-latest'
