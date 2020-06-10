@@ -10,24 +10,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-    displayName: 'npm install and build'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'CypressTestResult'
-        publishLocation: 'Container'
-
-stages:
+  stages:
   # Default stage (to run tests in Electron environment)
   - template: templates/stages/defaultStage.yml
     parameters:
@@ -44,3 +29,16 @@ stages:
   - template: templates/stages/edgeStage.yml
     parameters:
       imageName: 'windows-latest'
+
+- script: |
+    npm install
+    npm run build
+    displayName: 'npm install and build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'CypressTestResult'
+        publishLocation: 'Container'
+
+
