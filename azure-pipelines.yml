@@ -2,26 +2,39 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# Custom build to run automated tests with Cypress
 
 trigger:
-- master
+  - master
+  - develop
+  - feature/*
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(imageName)
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+variables:
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: # only works if you have a master branch
+    configFile: QA
+  ${{ if eq(variables['Build.SourceBranchName'], 'develop') }}: # only works if you have a develop branch
+    configFile: development
+  ${{ if not(or(eq(variables['Build.SourceBranchName'], 'develop'), eq(variables['Build.SourceBranchName'], 'master'))) }}:
+    configFile: development
 
-- script: |
-    npm install
-    npm run build
-    displayName: 'npm install and build'
+stages:
+  # Default stage (to run tests in Electron environment)
+  - template: templates/stages/defaultStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'CypressTestResult'
-        publishLocation: 'Container'
+  - template: templates/stages/chromeStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
+
+  - template: templates/stages/firefoxStage.yml
+    parameters:
+      imageName: 'ubuntu-latest'
+
+  - template: templates/stages/edgeStage.yml
+    parameters:
+      imageName: 'windows-latest'
+
