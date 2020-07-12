@@ -2,6 +2,7 @@
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# Custom build to run automated tests with Cypress
 
 trigger:
 - master
@@ -19,9 +20,22 @@ steps:
     npm install
     npm run build
     displayName: 'npm install and build'
+<<<<<<< HEAD
   displayName: 'npm run test with report'
+=======
+
+>>>>>>> f7f2beb2d9823ea5673d6c3d87d73212a7648cae
 - task: PublishBuildArtifacts@1
   inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'CypressTestResult'
+<<<<<<< HEAD
         publishLocation: 'Container'
+=======
+        publishLocation: 'Container'
+
+
+
+
+
+>>>>>>> f7f2beb2d9823ea5673d6c3d87d73212a7648cae
