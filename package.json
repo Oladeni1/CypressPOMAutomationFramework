@@ -4,27 +4,33 @@
   "description": "Cyress Automation Framework",
   "main": "index.js",
   "scripts": {
-    
     "openCypressTestRunner": "node_modules\\.bin\\cypress open",
-    "testSpec": "node_modules\\.bin\\cypress run",
-    "headedTest": "npm run test -- --headed",
-    "chromeTest": "npm run test -- --browser chrome",
-    "recordDashboardTest": "npm run test -- --record --key ac32cb2b-b95b-4e42-985f-68ce5156f36a --reporter mochawesome",
-
+    "test": "node_modules\\.bin\\cypress run",
+    "runHeadedTest": "npm run test -- --headed",
+    "runChromeBrowserTest": "npm run test -- --browser chrome",
+    "runFireFoxBrowserTest": "npm run test -- --browser firefox",
+    "runEdgeBrowserTest": "npm run test -- --browser edge",
+    "runRecordDashboardTest": "npm run test -- --record --key ac32cb2b-b95b-4e42-985f-68ce5156f36a --reporter mochawesome",
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
     "preTest": "npm run clean:reports",
     "script": "cypress run",
     "combinedJsonReport": "mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mochareports/report.json",
     "generateReport": "merge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "postTestReport": "npm run combinedJsonReport && npm run generateReport",
-    "runTestWithReport": "npm run script || npm run postTestReport"
-
+    "runTestWithReport": "npm run script || npm run postTestReport",
+    "runBrowserStackTest": "browserstack-cypress run"
   },
   "author": "Ola Oladeni",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^3.8.1",
+    "browserstack-cypress-cli": "^1.2.0",
+    "http-server": "^0.12.3",
     "mocha": "^5.2.0",
     "mochawesome": "^4.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^4.10.0",
+    "cypress-xpath": "^1.4.0",
+    "prettier": "2.0.5"
   }
 }

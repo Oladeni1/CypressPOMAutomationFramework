@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2020-05-03T04:05:24.987Z",
-    "end": "2020-05-03T04:05:51.009Z",
-    "duration": 26022,
+    "start": "2020-07-12T22:43:41.701Z",
+    "end": "2020-07-12T22:44:30.333Z",
+    "duration": 48632,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,16 +18,16 @@
   },
   "results": [
     {
-      "uuid": "7dda38a4-16ef-44b7-9d3c-662756dedef2",
+      "uuid": "efdba211-8a09-46e8-8b87-5b954bd132e6",
       "title": "",
-      "fullFile": "",
-      "file": "",
+      "fullFile": "cypress\\integration\\CypressFramework.js",
+      "file": "cypress\\integration\\CypressFramework.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "23bf7655-60c6-48e5-ade4-4ab5a27b5307",
+          "uuid": "94c9cc4c-ec32-4660-ba6b-865c483f0130",
           "title": "My Framework Suite",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Do something nice!",
               "fullTitle": "My Framework Suite Do something nice!",
               "timedOut": null,
-              "duration": 20535,
+              "duration": 35319,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "var homePage = new _HomePage.default();\nvar productPage = new _ProductPage.default();\nvar confirmPage = new _ConfirmPage.default();\nvar paymentPage = new _PaymentPage.default();\ncy.visit(Cypress.env(\"url\")); //Pulling for global variable setting from cypress.json folder\nhomePage.getName().type(this.data.name);\nhomePage.getGender().select(this.data.gender); //assert that name is displayed in 2way data binding field:\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name); //assert that inputed data for name field is having min of 2 characters:\nhomePage.getName().should('have.attr', 'minlength', '2'); //assert that Entrepreneur is in disable mode in the application:\nhomePage.getEnterpreneur().should('be.disabled'); //cy.pause() //<= use pause to debugg\n//nav to Shop\nhomePage.getShop().click(); //add product: Parameterising data and driving them from support => commands.js\n//cy.selectProduct('Blackberry')  // function coming from support => commands.js\n//cy.selectProduct('Nokia Edge')\n//cy.selectProduct('iphone X')\n//Alternativelly, extend the support => commands.js dataParam to fixture => testdata.json and call it as below:\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n  console.log(element);\n}); //Click Checkout buttton for products in the confirm page:  \nproductPage.getCheckOut().click(); //Sum Prices of all products in the bag:\nvar sum = 0;\nconfirmPage.getProductsPrices().each(function ($el, index, $list) {\n  cy.log($el.text());\n  var amount = $el.text();\n  var result = amount.split(\" \");\n  result = result[1].trim(); //trim to remove currency sign\n  cy.log(result);\n  sum = Number(sum) + Number(result);\n}).then(function () {\n  cy.log(sum);\n}); //Grand Total of all products prices in the bag:\nconfirmPage.getProductsGrandPrice().then(function (element) {\n  var amount = element.text();\n  var grandtotal = amount.split(\" \");\n  var grandtotal = grandtotal[1].trim(); //trim to remove currency sign\n  cy.log(grandtotal); //Assert that sum of the products prices is equalto grand total\n  expect(sum).to.equal(Number(grandtotal));\n}); //Click Checkout buttton for products in the confirm page: \nconfirmPage.getCheckOutConfirm().click(); //Enter country of dispatch in the payment confirm page: \npaymentPage.getDispatchCountryName().type(this.data.CountryOfDispatch);\ncy.wait(5000); //Click checkbox in the paymentconfirm page: \npaymentPage.getCheckBox().click(); //Click purchase buttton for products in the payment confirm page: \npaymentPage.getPurchase().click(); //Click purchase buttton for products in the payment confirm page:\npaymentPage.getSuccessMsg().should('include.text', 'Success!'); //fixture",
+              "code": "var homePage = new _HomePage[\"default\"]();\nvar productPage = new _ProductPage[\"default\"]();\nvar confirmPage = new _ConfirmPage[\"default\"]();\nvar paymentPage = new _PaymentPage[\"default\"]();\ncy.visit(Cypress.env(\"url\")); //Pulling for global variable setting from cypress.json folder\nhomePage.getName().type(this.data.name);\nhomePage.getGender().select(this.data.gender); //assert that name is displayed in 2way data binding field:\nhomePage.getTwoWayDataBinding().should('have.value', this.data.name); //assert that inputed data for name field is having min of 2 characters:\nhomePage.getName().should('have.attr', 'minlength', '2'); //assert that Entrepreneur is in disable mode in the application:\nhomePage.getEnterpreneur().should('be.disabled'); //cy.pause() //<= use pause to debugg\n//nav to Shop\nhomePage.getShop().click(); //add product: Parameterising data and driving them from support => commands.js\n//cy.selectProduct('Blackberry')  // function coming from support => commands.js\n//cy.selectProduct('Nokia Edge')\n//cy.selectProduct('iphone X')\n//Alternativelly, extend the support => commands.js dataParam to fixture => testdata.json and call it as below:\nthis.data.productName.forEach(function (element) {\n  cy.selectProduct(element);\n  console.log(element);\n}); //Click Checkout buttton for products in the confirm page:  \nproductPage.getCheckOut().click(); //Sum Prices of all products in the bag:\nvar sum = 0;\nconfirmPage.getProductsPrices().each(function ($el, index, $list) {\n  cy.log($el.text());\n  var amount = $el.text();\n  var result = amount.split(\" \");\n  result = result[1].trim(); //trim to remove currency sign\n  cy.log(result);\n  sum = Number(sum) + Number(result);\n}).then(function () {\n  cy.log(sum);\n}); //Grand Total of all products prices in the bag:\nconfirmPage.getProductsGrandPrice().then(function (element) {\n  var amount = element.text();\n  var grandtotal = amount.split(\" \");\n  var grandtotal = grandtotal[1].trim(); //trim to remove currency sign\n  cy.log(grandtotal); //Assert that sum of the products prices is equalto grand total\n  expect(sum).to.equal(Number(grandtotal));\n}); //Click Checkout buttton for products in the confirm page: \nconfirmPage.getCheckOutConfirm().click(); //Enter country of dispatch in the payment confirm page: \npaymentPage.getDispatchCountryName().type(this.data.CountryOfDispatch);\ncy.wait(5000); //Click checkbox in the paymentconfirm page: \npaymentPage.getCheckBox().click(); //Click purchase buttton for products in the payment confirm page: \npaymentPage.getPurchase().click(); //Click purchase buttton for products in the payment confirm page:\npaymentPage.getSuccessMsg().should('include.text', 'Success!'); //fixture",
               "err": {},
-              "uuid": "c2460d35-6b7b-4a20-b07f-64883cf756fd",
-              "parentUUID": "23bf7655-60c6-48e5-ade4-4ab5a27b5307",
+              "uuid": "1e248064-8b8d-4fca-885d-e979bfc2bedc",
+              "parentUUID": "94c9cc4c-ec32-4660-ba6b-865c483f0130",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c2460d35-6b7b-4a20-b07f-64883cf756fd"
+            "1e248064-8b8d-4fca-885d-e979bfc2bedc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 20535,
+          "duration": 35319,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -78,7 +78,7 @@
   ],
   "meta": {
     "mocha": {
-      "version": "5.2.0"
+      "version": "7.0.1"
     },
     "mochawesome": {
       "options": {
@@ -98,7 +98,7 @@
           "reportDir": "cypress/reports/mocha",
           "quite": true,
           "overwrite": false,
-          "html": false,
+          "html": true,
           "json": true
         }
       },

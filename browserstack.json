@@ -1,0 +1,35 @@
+{
+    "auth": {
+        "username": "olatundeoladeni1",
+        "access_key": "xvJmp6gnsypzEqoKjS88"
+    },
+    "browsers": [
+        {
+            "browser": "chrome",
+            "os": "Windows 10",
+            "versions": ["80","77"]
+        },
+        {
+            "browser": "firefox",
+            "os": "Windows 10",
+            "versions": ["67","66"]
+        },
+        {
+            "browser": "edge",
+            "os": "Windows 10",
+            "versions": ["81","80"]
+        }
+    ],
+    "run_settings": {
+        "cypress_proj_dir": "./",
+        "project_name": "CypressAutomationPOMFramework",
+        "build_name": "Build no: 1",
+        "parallels": 5,
+        "npm_dependencies": {}
+    },
+    "connection_settings": {
+        "local": false,
+        "local_identifier": null
+    },
+    "disable_usage_reporting": false
+}
