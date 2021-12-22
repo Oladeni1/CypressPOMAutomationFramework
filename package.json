@@ -4,14 +4,14 @@
   "description": "Cyress Automation Framework",
   "main": "index.js",
   "scripts": {
-    "openCypressTestRunner": "node_modules\\.bin\\cypress open",
-    "test": "node_modules\\.bin\\cypress run",
+    "openCypressTestRunner": "cypress open",
+    "test": "cypress run",
     "runHeadedTest": "npm run test -- --headed",
     "runChromeBrowserTest": "npm run test -- --browser chrome",
     "runFireFoxBrowserTest": "npm run test -- --browser firefox",
     "runEdgeBrowserTest": "npm run test -- --browser edge",
     "runRecordDashboardTest": "npm run test -- --record --key ac32cb2b-b95b-4e42-985f-68ce5156f36a --reporter mochawesome",
-    "testSpec": "node_modules\\.bin\\cypress run",
+    "testSpec": "cypress run",
     "headedTest": "npm run test -- --headed",
     "chromeTest": "npm run test -- --browser chrome",
     "recordDashboardTest": "npm run test -- --record --key ac32cb2b-b95b-4e42-985f-68ce5156f36a --reporter mochawesome",
@@ -21,31 +21,28 @@
     "combinedJsonReport": "mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mochareports/report.json",
     "generateReport": "merge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
     "postTestReport": "npm run combinedJsonReport && npm run generateReport",
-<<<<<<< HEAD
     "runTestWithReport": "npm run script || npm run postTestReport",
     "runBrowserStackTest": "browserstack-cypress run"
-=======
-    "runTestWithReport": "npm run script || npm run postTestReport"
->>>>>>> f7f2beb2d9823ea5673d6c3d87d73212a7648cae
   },
   "author": "Ola Oladeni",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "browserstack-cypress-cli": "^1.2.0",
     "http-server": "^0.12.3",
-=======
->>>>>>> f7f2beb2d9823ea5673d6c3d87d73212a7648cae
-    "mocha": "^5.2.0",
+    "mocha": "^8.3.2",
     "mochawesome": "^4.1.0"
   },
   "devDependencies": {
-<<<<<<< HEAD
-    "cypress": "^4.10.0",
+    "cypress": "^7.2.0",
     "cypress-xpath": "^1.4.0",
     "prettier": "2.0.5"
-=======
-    "cypress": "^3.8.3"
->>>>>>> f7f2beb2d9823ea5673d6c3d87d73212a7648cae
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oladeni1/CypressPOMAutomationFramework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Oladeni1/CypressPOMAutomationFramework/issues"
+  },
+  "homepage": "https://github.com/Oladeni1/CypressPOMAutomationFramework#readme"
 }
