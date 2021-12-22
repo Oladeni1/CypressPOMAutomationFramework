@@ -30,12 +30,14 @@
     "browserstack-cypress-cli": "^1.2.0",
     "http-server": "^0.12.3",
     "mocha": "^8.3.2",
-    "mochawesome": "^4.1.0"
+    "mochawesome": "^4.1.0",
+    "json-schema": ">=0.4.0"
   },
   "devDependencies": {
     "cypress": "^7.2.0",
     "cypress-xpath": "^1.4.0",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "json-schema": ">=0.4.0"
   },
   "repository": {
     "type": "git",
