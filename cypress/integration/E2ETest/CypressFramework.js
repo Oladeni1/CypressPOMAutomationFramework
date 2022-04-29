@@ -1,10 +1,10 @@
 //used for suggesting function/methods in cypress:
 ///// <reference types="Cypress"/>     
 
-import HomePage from '../support/pageObjects/HomePage.js'
-import ProductPage from '../support/pageObjects/ProductPage.js'
-import ConfirmPage from '../support/pageObjects/ConfirmPage.js'
-import PaymentPage from '../support/pageObjects/PaymentPage.js'
+import HomePage from '../../support/pageObjects/HomePage.js'
+import ProductPage from '../../support/pageObjects/ProductPage.js'
+import ConfirmPage from '../../support/pageObjects/ConfirmPage.js'
+import PaymentPage from '../../support/pageObjects/PaymentPage.js'
 
 describe('My Framework Suite', function() 
 {
